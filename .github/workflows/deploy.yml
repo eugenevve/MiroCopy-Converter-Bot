@@ -1,4 +1,4 @@
-name: Deploy MiroCopy-Converter
+name: Deploy MiroCopy-ConverterBot
 
 on:
   push:
@@ -11,14 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy Converter
+      - name: Deploy ConverterBot
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/MiroCopy-Converter
+            cd ~/MiroCopy-ConverterBot
             ./deploy.sh
 
       - name: Notify Telegram (via MiroCopy Bot)

@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  converter:
+  converter-bot:
     build: .
-    container_name: mirocopy-converter
+    container_name: mirocopy-converterbot
     restart: always
     volumes:
       - ./resources:/app/resources
