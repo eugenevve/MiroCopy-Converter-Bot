@@ -21,7 +21,7 @@ jobs:
             cd ~/MiroCopy-ConverterBot
             ./deploy.sh
 
-      - name: Notify Telegram (via MiroCopy Bot)
+      - name: Notify Telegram
         if: always()
         uses: appleboy/ssh-action@master
         with:
@@ -31,9 +31,7 @@ jobs:
           script: |
             sleep 5
             STATUS="${{ job.status }}"
-            # Здесь мы специально обращаемся к другому проекту (mirocopy-telegram),
-            # чтобы вызвать его скрипт уведомлений.
-            docker compose -p mirocopy-telegram exec telegram \
+            docker compose -p mirocopy-devbot exec devbot \
               python3 notify_trigger.py \
               '${{ github.event.repository.name }}' \
               '${{ github.ref_name }}' \
