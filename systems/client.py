@@ -9,7 +9,7 @@ router = Router()
 
 @router.message(Command("start"))
 async def start_command(message: types.Message):
-    await message.answer("Пожалуйста, пришлите фото для конвертации в PDF")
+    await message.answer("Пожалуйста, пришлите фото для конвертации в PDF!")
 
 @router.message(F.photo)
 async def photo_to_pdf(message: types.Message):
