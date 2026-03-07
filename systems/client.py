@@ -5,7 +5,7 @@ import asyncio
 from typing import Dict, List, Tuple
 from aiogram import Router, types, F
 from aiogram.filters import Command
-from aiogram.types import BotCommand, BotCommandScopeChat, FSInputFile
+from aiogram.types import FSInputFile
 from utils.messages import get_message
 
 router = Router()
@@ -17,15 +17,7 @@ media_group_lock = asyncio.Lock()
 
 @router.message(Command("start"))
 async def start_command(message: types.Message):
-    language_code = message.from_user.language_code if message.from_user else None
-
-    if message.from_user:
-        commands = [
-            BotCommand(command="start", description=get_message("command_start", language_code)),
-        ]
-        await message.bot.set_my_commands(commands, scope=BotCommandScopeChat(chat_id=message.from_user.id))
-
-    await message.answer(get_message("start", language_code))
+    await message.answer(get_message("start", message.from_user.language_code if message.from_user else None))
 
 async def process_photo_batch(message: types.Message, photo_file_ids: List[str]):
     operation_id = uuid.uuid4().hex[:10]

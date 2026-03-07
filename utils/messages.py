@@ -5,7 +5,6 @@ SupportedLanguage = str
 
 MESSAGES: Dict[SupportedLanguage, Dict[str, str]] = {
     "ru": {
-        "command_start": "🔄 Перезапуск",
         "start": "Пожалуйста, пришлите фото для конвертации в PDF!",
         "processing_error": "Произошла ошибка при обработке фото: {error}",
         "unsupported_content": (
@@ -14,7 +13,6 @@ MESSAGES: Dict[SupportedLanguage, Dict[str, str]] = {
         ),
     },
     "en": {
-        "command_start": "🔄 Restart",
         "start": "Please send a photo to convert it to PDF!",
         "processing_error": "An error occurred while processing the photo: {error}",
         "unsupported_content": (
