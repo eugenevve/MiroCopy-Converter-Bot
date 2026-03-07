@@ -1,2 +1,2 @@
-aiogram==3.23.0
+aiogram==3.26.0
 img2pdf==0.6.3
