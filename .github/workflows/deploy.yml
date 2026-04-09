@@ -20,21 +20,3 @@ jobs:
           script: |
             cd ~/MiroCopy-ConverterBot
             ./deploy.sh
-
-      # - name: Notify Telegram
-      #   if: always()
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SERVER_IP }}
-      #     username: ${{ secrets.SERVER_USER }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     script: |
-      #       sleep 5
-      #       STATUS="${{ job.status }}"
-      #       docker compose -p mirocopy-devbot exec devbot \
-      #         python3 notify_trigger.py \
-      #         '${{ github.event.repository.name }}' \
-      #         '${{ github.ref_name }}' \
-      #         '${{ github.event.head_commit.message }}' \
-      #         "$STATUS" \
-      #         '${{ github.actor }}'
