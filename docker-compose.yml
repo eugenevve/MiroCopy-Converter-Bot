@@ -4,5 +4,5 @@ services:
   converterbot:
     build: .
     restart: unless-stopped
-    volumes:
-      - ./config.ini:/app/config.ini:ro
+    env_file:
+      - .env

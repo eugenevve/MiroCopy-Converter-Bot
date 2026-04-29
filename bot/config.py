@@ -1,7 +1,9 @@
-import configparser
+import os
+from dotenv import load_dotenv
 
-# Подключение к конфигурационному файлу
-config = configparser.ConfigParser()
-config.read("config.ini", encoding="utf-8")
+load_dotenv()
 
-API_TOKEN = config["token"]["bot"]
+API_TOKEN = os.getenv("BOT_TOKEN")
+
+if not API_TOKEN:
+    raise RuntimeError("BOT_TOKEN is not set in environment variables")
