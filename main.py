@@ -1,8 +1,8 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommand
-from systems.client import router as client_router
-from utils.config_connection import API_TOKEN
+from bot.config import API_TOKEN
+from bot.handlers.convert import router as client_router
 from utils.logger import logger
 
 # Инициализация токена бота
