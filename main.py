@@ -1,11 +1,20 @@
 import asyncio
+import logging
+
 from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommand
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.client.default import DefaultBotProperties
+
 from bot.config import API_TOKEN
 from bot.handlers.convert import router as client_router
 from utils.logger import logger
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
 
 
 async def set_commands(bot: Bot) -> None:
@@ -17,9 +26,12 @@ async def set_commands(bot: Bot) -> None:
 async def main() -> None:
     logger.info("🔄 Bot is starting...")
 
-    bot = Bot(token=API_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-    dp = Dispatcher()
+    bot = Bot(
+        token=API_TOKEN,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    )
 
+    dp = Dispatcher()
     dp.include_router(client_router)
 
     await set_commands(bot)
