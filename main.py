@@ -8,7 +8,7 @@ from aiogram.client.default import DefaultBotProperties
 
 from bot.config import API_TOKEN
 from bot.handlers.convert import router as client_router
-from utils.logger import logger
+from bot.logger import logger
 
 
 logging.basicConfig(
