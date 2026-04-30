@@ -1,9 +1,9 @@
 # 📄 MiroCopy Converter Bot
 
-[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)]()
-[![Aiogram](https://img.shields.io/badge/Aiogram-3.x-green.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)]()
-[![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)]()
+[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org)
+[![Aiogram](https://img.shields.io/badge/Aiogram-3.x-green.svg)](https://docs.aiogram.dev)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)](https://www.docker.com)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Open%20Bot-blue?logo=telegram)](https://t.me/mirocopy_converter_bot)
 
 A simple Telegram bot that converts photos into a single PDF file.
