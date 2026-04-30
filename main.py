@@ -6,9 +6,9 @@ from aiogram.types import BotCommand
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.client.default import DefaultBotProperties
 
-from bot.config import API_TOKEN
+from bot.core.config import API_TOKEN
 from bot.handlers.convert import router as client_router
-from bot.logger import logger
+from bot.core.logger import logger
 
 
 logging.basicConfig(
