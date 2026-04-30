@@ -22,6 +22,41 @@ cat ~/.ssh/id_converterbot.pub >> ~/.ssh/authorized_keys
 
 ---
 
+### View public key
+
+If you need to copy the key manually (for GitHub Deploy Keys):
+
+```bash
+cat ~/.ssh/id_converterbot.pub
+```
+
+Copy **entire output** and paste into GitHub Deploy Keys.
+
+---
+
+### View private key
+
+If you need to add it to GitHub Secrets (CI/CD):
+
+```bash
+cat ~/.ssh/id_converterbot
+```
+
+Copy **entire output including BEGIN/END lines** and store it in:
+
+```
+GitHub → Settings → Secrets and variables → Actions → SSH_PRIVATE_KEY
+```
+
+---
+
+### Important clarification
+
+- `.pub` → public key (safe, goes to GitHub Deploy Keys)
+- no extension file → private key (SECRET, goes to GitHub Secrets)
+
+---
+
 ### Configure GitHub Deploy Key
 
 On GitHub:
@@ -31,7 +66,7 @@ On GitHub:
 
 ```
 Title: Server-Deploy-Key-MiroCopy-Converter-Bot
-Key: contents of id_converterbot.pub
+Key: contents of id_converterbot.pub (use command above to copy)
 ```
 
 ---
@@ -112,5 +147,3 @@ Make sure server is running correctly before enabling auto-deploy.
 - Ensure `.env` file exists on server
 - Never commit secrets to repository
 - Use Docker for consistent deployment
-
----
