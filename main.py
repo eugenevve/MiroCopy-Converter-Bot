@@ -1,5 +1,4 @@
 import asyncio
-import logging
 
 from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
@@ -7,7 +6,7 @@ from aiogram.client.default import DefaultBotProperties
 
 from bot.core.config import API_TOKEN
 from bot.handlers.convert import router as client_router
-from bot.core.logger import logger
+from bot.core.logging import logger
 from bot.telegram.commands import (
     get_commands_en,
     get_commands_ru,
@@ -15,12 +14,6 @@ from bot.telegram.commands import (
     get_commands_pt,
     get_commands_id,
     get_commands_ar,
-)
-
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
 )
 
 
