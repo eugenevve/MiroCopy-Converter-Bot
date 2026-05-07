@@ -5,7 +5,6 @@ PROJECT_NAME="mirocopy-converter-bot"
 APP_DIR="$HOME/MiroCopy-Converter-Bot"
 
 echo "🚀 Deploy start"
-
 cd "$APP_DIR" || { echo "❌ $APP_DIR not found"; exit 1; }
 
 echo "📥 Pull latest code"
