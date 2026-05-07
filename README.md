@@ -26,7 +26,8 @@ A simple Telegram bot that converts photos into a single PDF file.
 
 - **Python 3.13**
 - **Aiogram 3.x** - Telegram Bot framework
-- **img2pdf** - image to PDF conversion
+- **img2pdf** - Image to PDF conversion
+- **python-dotenv** - Environment variables management
 
 ---
 
@@ -36,7 +37,7 @@ A simple Telegram bot that converts photos into a single PDF file.
 
 ```bash
 git clone https://github.com/eugeneviktorov/mirocopy-converter-bot.git
-cd mirocopy-converterbot
+cd mirocopy-converter-bot
 ```
 
 ---
@@ -121,11 +122,14 @@ bot/
   handlers/
   locales/
   services/
+  telegram/
   utils/
+docs/
 .gitignore
 deploy.sh
 docker-compose.yml
 Dockerfile
+LICENSE
 main.py
 README.md
 requirements.txt
