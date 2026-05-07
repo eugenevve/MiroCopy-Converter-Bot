@@ -1,40 +1,27 @@
+from aiogram import Bot
 from aiogram.types import BotCommand
 
 from bot.locales.index import get_texts
 from bot.utils.enums import Command, Locales
 
 
-def get_commands_en():
+def get_lang_commands(lang_code: str) -> list[BotCommand]:
+    texts = get_texts(lang_code)
     return [
-        BotCommand(command=Command.START, description=get_texts(Locales.EN).START_CMD),
+        BotCommand(command=Command.START, description=texts.START_CMD),
     ]
 
 
-def get_commands_ru():
-    return [
-        BotCommand(command=Command.START, description=get_texts(Locales.RU).START_CMD),
+async def set_commands(bot: Bot) -> None:
+    languages = [
+        Locales.RU,
+        Locales.ES,
+        Locales.PT,
+        Locales.ID,
+        Locales.AR
     ]
 
+    await bot.set_my_commands(get_lang_commands(Locales.EN))
 
-def get_commands_es():
-    return [
-        BotCommand(command=Command.START, description=get_texts(Locales.ES).START_CMD),
-    ]
-
-
-def get_commands_pt():
-    return [
-        BotCommand(command=Command.START, description=get_texts(Locales.PT).START_CMD),
-    ]
-
-
-def get_commands_id():
-    return [
-        BotCommand(command=Command.START, description=get_texts(Locales.ID).START_CMD),
-    ]
-
-
-def get_commands_ar():
-    return [
-        BotCommand(command=Command.START, description=get_texts(Locales.AR).START_CMD),
-    ]
+    for lang in languages:
+        await bot.set_my_commands(get_lang_commands(lang), language_code=lang)
