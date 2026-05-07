@@ -1,7 +1,7 @@
 from aiogram.types import BotCommand
 
 from bot.locales.index import get_texts
-from bot.telegram.enums import Command
+from bot.utils.enums import Command
 
 
 def get_commands_en():
