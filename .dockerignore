@@ -17,7 +17,6 @@ venv/
 
 # Environment / secrets
 .env
-config.ini
 
 # OS files
 .DS_Store
