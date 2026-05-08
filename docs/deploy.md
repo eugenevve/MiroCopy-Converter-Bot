@@ -142,6 +142,12 @@ Make sure server is running correctly before enabling auto-deploy.
 
 ---
 
+## 🧹 6. deploy.sh
+
+If the deploy.sh file has been updated, a manual update may be required.
+
+---
+
 ## 📌 Notes
 
 - Ensure `.env` file exists on server
