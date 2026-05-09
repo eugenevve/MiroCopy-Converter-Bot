@@ -30,7 +30,7 @@ async def cmd_start(message: types.Message, state: FSMContext):
 # ---------------------------
 @router.message(StateFilter(ConvertStates.main_menu), F.text.contains("📸"))
 async def set_photo_mode(message: types.Message, state: FSMContext):
-    await state.set_state(ConvertStates.convert_for_photos)
+    await state.set_state(ConvertStates.convert_for_images)
     lang = message.from_user.language_code if message.from_user else None
     await message.answer(
         get_texts(lang).SEND_PHOTO,

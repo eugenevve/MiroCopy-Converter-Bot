@@ -28,7 +28,7 @@ media_group_lock = asyncio.Lock()
 # ---------------------------
 # BACK MENU
 # ---------------------------
-@router.message(StateFilter(ConvertStates.convert_for_photos), F.text.contains("⬅️"))
+@router.message(StateFilter(ConvertStates.convert_for_images), F.text.contains("⬅️"))
 async def back_to_menu(message: types.Message, state: FSMContext):
     await return_to_main_menu(message, state)
 
@@ -36,7 +36,7 @@ async def back_to_menu(message: types.Message, state: FSMContext):
 # ---------------------------
 # PHOTO HANDLER
 # ---------------------------
-@router.message(StateFilter(ConvertStates.convert_for_photos), F.photo)
+@router.message(StateFilter(ConvertStates.convert_for_images), F.photo)
 async def photo_to_pdf(message: types.Message):
     photo_file_id = message.photo[-1].file_id
 
@@ -116,6 +116,6 @@ async def process_photo_batch(message: types.Message, photo_file_ids: List[str])
 # ---------------------------
 # FALLBACK
 # ---------------------------
-@router.message(StateFilter(ConvertStates.convert_for_photos))
+@router.message(StateFilter(ConvertStates.convert_for_images))
 async def photo_fallback(message: types.Message):
     await send_unsupported_content(message)
