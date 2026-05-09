@@ -5,7 +5,7 @@ from aiogram.enums.parse_mode import ParseMode
 from aiogram.client.default import DefaultBotProperties
 
 from bot.core.config import API_TOKEN
-from bot.handlers.convert import router as convert_router
+from bot.handlers import get_handlers_router
 from bot.core.logging import logger
 from bot.telegram.commands import set_commands
 
@@ -19,7 +19,7 @@ async def main() -> None:
     )
 
     dp = Dispatcher()
-    dp.include_router(convert_router)
+    dp.include_router(get_handlers_router())
 
     await set_commands(bot)
 
