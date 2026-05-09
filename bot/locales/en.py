@@ -7,7 +7,7 @@ BTN_IMAGE_TO_PDF = "📸 Image → PDF"
 BTN_BACK = "⬅️ Go back"
 
 # Text for the mode
-SEND_PHOTO = "Send me one or more photos (as an album) to be compiled into a PDF file"
+SEND_IMAGE = "Send me one or more photos (as an album) to be compiled into a PDF file"
 
 # Error messages
 PROCESSING_ERROR = "An error occurred while processing"

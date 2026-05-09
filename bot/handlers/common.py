@@ -33,7 +33,7 @@ async def set_image_mode(message: types.Message, state: FSMContext):
     await state.set_state(ConvertStates.convert_for_images)
     lang = message.from_user.language_code if message.from_user else None
     await message.answer(
-        get_texts(lang).SEND_PHOTO,
+        get_texts(lang).SEND_IMAGE,
         reply_markup=get_back_keyboard(lang)
     )
 
