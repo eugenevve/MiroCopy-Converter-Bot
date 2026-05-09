@@ -21,7 +21,7 @@ router = Router()
 
 
 MediaGroupKey = Tuple[int, str]
-media_group_photos: Dict[MediaGroupKey, List[Tuple[int, str]]] = {}
+media_group_images: Dict[MediaGroupKey, List[Tuple[int, str]]] = {}
 media_group_lock = asyncio.Lock()
 
 
@@ -34,22 +34,22 @@ async def back_to_menu(message: types.Message, state: FSMContext):
 
 
 # ---------------------------
-# PHOTO HANDLER
+# IMAGES HANDLER
 # ---------------------------
 @router.message(StateFilter(ConvertStates.convert_for_images), F.photo)
-async def photo_to_pdf(message: types.Message):
-    photo_file_id = message.photo[-1].file_id
+async def image_to_pdf(message: types.Message):
+    image_file_id = message.photo[-1].file_id
 
     if not message.media_group_id:
-        await process_photo_batch(message, [photo_file_id])
+        await process_image_batch(message, [image_file_id])
         return
 
     group_key = (message.chat.id, message.media_group_id)
 
     async with media_group_lock:
-        media_group_photos.setdefault(group_key, [])
-        media_group_photos[group_key].append(
-            (message.message_id, photo_file_id)
+        media_group_images.setdefault(group_key, [])
+        media_group_images[group_key].append(
+            (message.message_id, image_file_id)
         )
 
     asyncio.create_task(flush_media_group(group_key, message))
@@ -62,7 +62,7 @@ async def flush_media_group(group_key: MediaGroupKey, message: types.Message):
     await asyncio.sleep(1)
 
     async with media_group_lock:
-        messages = media_group_photos.pop(group_key, [])
+        messages = media_group_images.pop(group_key, [])
 
     if not messages:
         return
@@ -70,13 +70,13 @@ async def flush_media_group(group_key: MediaGroupKey, message: types.Message):
     messages.sort(key=lambda item: item[0])
     file_ids = [file_id for _, file_id in messages]
 
-    await process_photo_batch(message, file_ids)
+    await process_image_batch(message, file_ids)
 
 
 # ---------------------------
 # CORE PIPELINE
 # ---------------------------
-async def process_photo_batch(message: types.Message, photo_file_ids: List[str]):
+async def process_image_batch(message: types.Message, image_file_id: List[str]):
     user_id = message.from_user.id if message.from_user else 0
 
     temp_image_paths = []
@@ -87,7 +87,7 @@ async def process_photo_batch(message: types.Message, photo_file_ids: List[str])
         # 1. download images
         temp_image_paths = await download_images(
             bot=message.bot,
-            file_ids=photo_file_ids,
+            file_ids=image_file_id,
             user_id=user_id,
             operation_id=operation_id
         )
@@ -117,5 +117,5 @@ async def process_photo_batch(message: types.Message, photo_file_ids: List[str])
 # FALLBACK
 # ---------------------------
 @router.message(StateFilter(ConvertStates.convert_for_images))
-async def photo_fallback(message: types.Message):
+async def image_fallback(message: types.Message):
     await send_unsupported_content(message)
