@@ -1,4 +1,14 @@
+# Start Titles
 START_CMD = "🔄 إعادة تشغيل البوت"
-START = "أرسل صورًا لتحويلها إلى PDF"
+START = "اختر وضع التحويل من القائمة أدناه"
+
+# Text for buttons
+BTN_PHOTO_TO_PDF = "📸 صورة -> ملف PDF"
+BTN_BACK = "⬅️ العودة إلى الخلف"
+
+# Text for the mode
+SEND_PHOTO = "أرسل لي صورة واحدة أو أكثر (كألبوم) ليتم تجميعها في ملف PDF"
+
+# Error messages
 PROCESSING_ERROR = "حدث خطأ أثناء المعالجة"
-UNSUPPORTED_CONTENT = "أرسل صورًا فقط لتحويلها إلى PDF"
+UNSUPPORTED_CONTENT = "معلمات غير صحيحة، يرجى المحاولة مرة أخرى"
