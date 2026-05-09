@@ -1,0 +1,6 @@
+from aiogram.fsm.state import StatesGroup, State
+
+
+class ConvertStates(StatesGroup):
+    main_menu = State()
+    convert_for_photos = State()
