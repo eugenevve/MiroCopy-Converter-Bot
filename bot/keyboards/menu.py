@@ -7,7 +7,7 @@ def get_menu_keyboard(lang: str | None) -> ReplyKeyboardMarkup:
     texts = get_texts(lang)
     keyboard = [
         [KeyboardButton(
-            text=texts.BTN_PHOTO_TO_PDF,
+            text=texts.BTN_IMAGE_TO_PDF,
             style=ButtonStyle.SUCCESS
         )],
     ]
