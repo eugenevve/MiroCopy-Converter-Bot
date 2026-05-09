@@ -3,7 +3,7 @@ START_CMD = "🔄 Reinicia el bot"
 START = "Seleccione el modo de conversión en el menú inferior"
 
 # Text for buttons
-BTN_IMAGE_TO_PDF = "📸 Foto → PDF"
+BTN_IMAGE_TO_PDF = "📸 Imagen → PDF"
 BTN_BACK = "⬅️ Volver"
 
 # Text for the mode
