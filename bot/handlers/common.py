@@ -5,6 +5,7 @@ from aiogram.filters import Command, StateFilter
 from bot.keyboards.menu import get_menu_keyboard
 from bot.keyboards.back import get_back_keyboard
 from bot.locales.index import get_texts
+from bot.ui.errors import send_unsupported_content
 from bot.utils.states import ConvertStates
 
 
@@ -42,7 +43,4 @@ async def set_photo_mode(message: types.Message, state: FSMContext):
 # ---------------------------
 @router.message(StateFilter(ConvertStates.main_menu))
 async def main_menu_fallback(message: types.Message):
-    lang = message.from_user.language_code if message.from_user else None
-    await message.answer(
-        get_texts(lang).UNSUPPORTED_CONTENT
-    )
+    await send_unsupported_content(message)

@@ -11,6 +11,7 @@ from bot.keyboards.menu import get_menu_keyboard
 from bot.locales.index import get_texts
 from bot.services.pdf_service import images_to_pdf
 from bot.services.file_service import download_images, build_pdf_name
+from bot.ui.errors import send_unsupported_content
 from bot.utils.files import safe_remove
 from bot.utils.states import ConvertStates
 
@@ -121,7 +122,4 @@ async def process_photo_batch(message: types.Message, photo_file_ids: List[str])
 # ---------------------------
 @router.message(StateFilter(ConvertStates.convert_for_photos))
 async def photo_fallback(message: types.Message):
-    lang = message.from_user.language_code if message.from_user else None
-    await message.answer(
-        get_texts(lang).UNSUPPORTED_CONTENT
-    )
+    await send_unsupported_content(message)
