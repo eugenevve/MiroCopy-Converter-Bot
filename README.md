@@ -6,7 +6,7 @@
 [![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)](https://www.docker.com)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Open%20Bot-blue?logo=telegram)](https://t.me/mirocopy_converter_bot)
 
-A simple Telegram bot that converts photos into a single PDF file.
+A simple Telegram bot that converts images into a single PDF file.
 
 👉 **Try it here:** https://t.me/mirocopy_converter_bot
 
@@ -14,8 +14,8 @@ A simple Telegram bot that converts photos into a single PDF file.
 
 ## ✨ Features
 
-- 📷 Convert single photo to PDF
-- 🖼 Convert multiple photos (albums) into one PDF
+- 📷 Convert single image to PDF
+- 🖼 Convert multiple images (albums) into one PDF
 - 🌍 Multi-language support (EN, RU, ES, PT, ID, AR)
 - ⚡ Fast and asynchronous processing
 - 🧹 Automatic temporary file cleanup
@@ -139,7 +139,7 @@ requirements.txt
 
 ## 🧠 How It Works
 
-1. User sends photo(s)
+1. User sends image(s)
 2. Bot downloads images
 3. Converts them into PDF
 4. Sends PDF back to user
