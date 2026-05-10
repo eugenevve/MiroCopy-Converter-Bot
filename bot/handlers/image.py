@@ -7,10 +7,9 @@ from aiogram.types import FSInputFile
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 
-from bot.keyboards.menu import get_menu_keyboard
 from bot.locales.index import get_texts
-from bot.services.pdf_service import images_to_pdf
-from bot.services.file_service import download_images, build_pdf_name
+from bot.services.image_service import images_to_pdf
+from bot.services.image_download_service import download_images, build_pdf_name
 from bot.ui.errors import send_unsupported_content
 from bot.ui.navigation import return_to_main_menu
 from bot.utils.files import safe_remove
