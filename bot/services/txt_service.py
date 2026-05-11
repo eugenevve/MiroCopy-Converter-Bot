@@ -2,6 +2,7 @@ import os
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.utils import simpleSplit
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 
@@ -20,14 +21,16 @@ def txt_to_pdf(input_path: str, output_path: str):
     pdfmetrics.registerFont(TTFont(font_name, font_path))
 
     c = canvas.Canvas(output_path, pagesize=A4)
-    height = A4
+    width, height = A4
 
     # text settings
     font_size = 11
     line_height = 14
     margin = 20 * mm
     current_y = height - margin
+    max_text_width = width - (2 * margin)
 
+    current_y = height - margin
     c.setFont(font_name, font_size)
 
     try:
@@ -42,6 +45,7 @@ def txt_to_pdf(input_path: str, output_path: str):
                 # improved line breaks (90 characters for Roboto 11pt)
                 max_chars = 90
                 chunks = [text[i:i+max_chars] for i in range(0, len(text), max_chars)]
+                chunks = simpleSplit(text, font_name, font_size, max_text_width)
 
                 for chunk in chunks:
                     # if the text has reached the bottom of the page
