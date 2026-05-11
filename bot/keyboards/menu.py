@@ -10,6 +10,10 @@ def get_menu_keyboard(lang: str | None) -> ReplyKeyboardMarkup:
             text=texts.BTN_IMAGE_TO_PDF,
             style=ButtonStyle.SUCCESS
         )],
+        [KeyboardButton(
+            text=texts.BTN_TXT_TO_PDF,
+            style=ButtonStyle.SUCCESS
+        )],
     ]
     return ReplyKeyboardMarkup(
         keyboard=keyboard,
