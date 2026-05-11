@@ -9,7 +9,8 @@ from aiogram.fsm.context import FSMContext
 
 from bot.locales.index import get_texts
 from bot.services.image_service import images_to_pdf
-from bot.services.image_download_service import download_images, build_pdf_name
+from bot.services.image_download_service import download_images
+from bot.utils.build_pdf_name import build_pdf_name
 from bot.ui.errors import send_unsupported_content
 from bot.ui.navigation import return_to_main_menu
 from bot.utils.files import safe_remove

@@ -6,7 +6,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 
 from bot.locales.index import get_texts
-from bot.services.image_download_service import build_pdf_name
+from bot.utils.build_pdf_name import build_pdf_name
 from bot.services.txt_service import txt_to_pdf
 from bot.ui.errors import send_unsupported_content
 from bot.ui.navigation import return_to_main_menu
