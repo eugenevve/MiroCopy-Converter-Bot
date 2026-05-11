@@ -16,6 +16,7 @@ A simple Telegram bot that converts images into a single PDF file.
 
 - 📷 Convert single image to PDF
 - 🖼 Convert multiple images (albums) into one PDF
+- 🗒 Convert txt file to pdf
 - 🌍 Multi-language support (EN, RU, ES, PT, ID, AR)
 - ⚡ Fast and asynchronous processing
 - 🧹 Automatic temporary file cleanup
@@ -117,6 +118,7 @@ Language is automatically detected from Telegram settings.
 ## 📁 Project Structure
 
 ```bash
+assets/
 bot/
   core/
   handlers/
@@ -139,8 +141,8 @@ requirements.txt
 
 ## 🧠 How It Works
 
-1. User sends image(s)
-2. Bot downloads images
+1. The user sends an image(s) or file
+2. The bot downloads the data
 3. Converts them into PDF
 4. Sends PDF back to user
 5. Cleans temporary files
@@ -149,6 +151,5 @@ requirements.txt
 
 ## 📌 Notes
 
-- Only images are supported
-- Large albums may take a few seconds to process
+- Large files or albums may take a few seconds to process
 - Temporary files are deleted automatically
