@@ -21,6 +21,8 @@ def txt_to_pdf(input_path: str, output_path: str):
     pdfmetrics.registerFont(TTFont(font_name, font_path))
 
     c = canvas.Canvas(output_path, pagesize=A4)
+    doc_title = os.path.basename(output_path)
+    c.setTitle(doc_title)
     width, height = A4
 
     # text settings
