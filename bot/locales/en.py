@@ -11,6 +11,10 @@ BTN_BACK = "⬅️ Go back"
 SEND_IMAGE = "Upload one or more images (as an album) to be assembled into a PDF file.\n\nThe following formats are supported: png, jpg, jpeg, heic, tif, tiff, bmp, ico, psd, jp2, avif, apng"
 SEND_TXT = "Submit a TXT file for assembly into a PDF file"
 
+# Other text
+UPDATE_SYSTEM = "Updating the system..."
+
 # Error messages
 PROCESSING_ERROR = "An error occurred while processing"
 UNSUPPORTED_CONTENT = "Incorrect parameters please try again"
+STATE_NONE = "The bot has been updated or rebooted. Please use the current menu"

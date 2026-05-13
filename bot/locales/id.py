@@ -11,6 +11,10 @@ BTN_BACK = "⬅️ Kembali"
 SEND_IMAGE = "Unggah satu atau lebih gambar (sebagai album) untuk digabungkan menjadi file PDF.\n\nFormat berikut didukung: png, jpg, jpeg, heic, tif, tiff, bmp, ico, psd, jp2, avif, apng"
 SEND_TXT = "Kirimkan file TXT untuk dirakit menjadi file PDF"
 
+# Other text
+UPDATE_SYSTEM = "Memperbarui sistem..."
+
 # Error messages
 PROCESSING_ERROR = "Terjadi kesalahan saat pemrosesan"
 UNSUPPORTED_CONTENT = "Parameter tidak tepat silakan coba lagi"
+STATE_NONE = "Bot telah diperbarui atau di-restart. Silakan gunakan menu yang tersedia saat ini"

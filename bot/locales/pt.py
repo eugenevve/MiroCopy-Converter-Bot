@@ -11,6 +11,10 @@ BTN_BACK = "⬅️ Voltar"
 SEND_IMAGE = "Faça o upload de uma ou mais imagens (como por exemplo um álbum) para serem reunidas num ficheiro PDF. \n\nOs seguintes formatos são suportados: png, jpg, jpeg, heic, tif, tiff, bmp, ico, psd, jp2, avif, apng"
 SEND_TXT = "Envie um ficheiro TXT para ser convertido num ficheiro PDF"
 
+# Other text
+UPDATE_SYSTEM = "Atualizando o sistema..."
+
 # Error messages
 PROCESSING_ERROR = "Ocorreu um erro durante o processamento"
 UNSUPPORTED_CONTENT = "Parâmetros incorretos tente novamente"
+STATE_NONE = "O bot foi atualizado ou reiniciado. Por favor utilize o menu atual"
