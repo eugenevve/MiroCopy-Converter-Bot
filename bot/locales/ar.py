@@ -1,5 +1,5 @@
 # Start Titles
-START_CMD = "🔄 إعادة تشغيل البوت"
+START_CMD = "🔄 أعد تشغيل البوت"
 START = "اختر وضع التحويل من القائمة أدناه"
 
 # Text for buttons
@@ -8,7 +8,7 @@ BTN_TXT_TO_PDF = "🗒 TXT → PDF"
 BTN_BACK = "⬅️ العودة إلى الخلف"
 
 # Text for the mode
-SEND_IMAGE = "أرسل صورة واحدة أو أكثر (كألبوم) ليتم تجميعها في ملف PDF"
+SEND_IMAGE = "قم بتحميل صورة واحدة أو أكثر (كألبوم) لتجميعها في ملف PDF\n\nالصيغ التالية مدعومة: png، jpg، jpeg، heic، tif، tiff، bmp، ico، psd، jp2، avif، apng"
 SEND_TXT = "أرسل ملف TXT لتجميعه في ملف PDF"
 
 # Error messages

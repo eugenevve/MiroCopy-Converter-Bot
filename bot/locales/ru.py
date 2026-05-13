@@ -8,7 +8,7 @@ BTN_TXT_TO_PDF = "🗒 TXT → PDF"
 BTN_BACK = "⬅️ Вернуться назад"
 
 # Text for the mode
-SEND_IMAGE = "Отправьте одно или несколько изображений (как альбом), для сборки в файл PDF"
+SEND_IMAGE = "Отправьте одно или несколько изображений (как альбом), для сборки в файл PDF.\n\nПоддерживаются следующие форматы: png, jpg, jpeg, heic, tif, tiff, bmp, ico, psd, jp2, avif, apng"
 SEND_TXT = "Отправьте файл формата TXT для сборки в файл PDF"
 
 # Error messages
