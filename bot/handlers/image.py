@@ -13,6 +13,7 @@ from bot.services.image_download_service import download_images
 from bot.utils.build_pdf_name import build_pdf_name
 from bot.ui.errors import send_unsupported_content
 from bot.ui.navigation import return_to_main_menu
+from bot.utils.enums import FileImageExtensions
 from bot.utils.files import safe_remove
 from bot.utils.states import ConvertStates
 
@@ -34,11 +35,26 @@ async def back_to_menu(message: types.Message, state: FSMContext):
 
 
 # ---------------------------
+# IMAGE EXTENSION CHECKS
+# ---------------------------
+def is_supported_image(message: types.Message) -> bool:
+    if message.photo:
+        return True
+    if message.document and message.document.file_name:
+        ext = message.document.file_name.lower().split('.')[-1]
+        return ext in FileImageExtensions.image_extensions()
+    return False
+
+
+# ---------------------------
 # IMAGES HANDLER
 # ---------------------------
-@router.message(StateFilter(ConvertStates.convert_for_images), F.photo)
+@router.message(StateFilter(ConvertStates.convert_for_images), F.func(is_supported_image))
 async def image_to_pdf(message: types.Message):
-    image_file_id = message.photo[-1].file_id
+    if message.photo:
+        image_file_id = message.photo[-1].file_id
+    else:
+        image_file_id = message.document.file_id
 
     if not message.media_group_id:
         await process_image_batch(message, [image_file_id])
@@ -52,7 +68,9 @@ async def image_to_pdf(message: types.Message):
             (message.message_id, image_file_id)
         )
 
-    asyncio.create_task(flush_media_group(group_key, message))
+    async with media_group_lock:
+        if len(media_group_images[group_key]) == 1:
+            asyncio.create_task(flush_media_group(group_key, message))
 
 
 # ---------------------------
