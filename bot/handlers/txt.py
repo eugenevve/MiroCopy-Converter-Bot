@@ -4,6 +4,7 @@ from aiogram import Router, types, F
 from aiogram.types import FSInputFile
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
+from aiogram.utils.chat_action import ChatActionSender
 
 from bot.locales.index import get_texts
 from bot.utils.build_pdf_name import build_pdf_name
@@ -44,25 +45,26 @@ async def txt_to_pdf_handler(message: types.Message):
     input_path = f"input_{user_id}_{operation_id}.{FileDocumentsExtensions.TXT}"
     pdf_path = build_pdf_name(user_id, operation_id)
 
-    try:
-        # 1. download images
-        await message.bot.download(message.document, destination=input_path)
+    async with ChatActionSender.upload_document(chat_id=message.chat.id, bot=message.bot):
+        try:
+            # 1. download images
+            await message.bot.download(message.document, destination=input_path)
 
-        # 2. convert TXT to PDF
-        txt_to_pdf(input_path, pdf_path)
+            # 2. convert TXT to PDF
+            txt_to_pdf(input_path, pdf_path)
 
-        # 4. send result
-        await message.answer_document(FSInputFile(pdf_path))
+            # 4. send result
+            await message.answer_document(FSInputFile(pdf_path))
 
-    except Exception as e:
-        print(f"TXT Error: {e}")
-        lang = message.from_user.language_code if message.from_user else None
-        await message.answer(get_texts(lang).PROCESSING_ERROR)
+        except Exception as e:
+            print(f"TXT Error: {e}")
+            lang = message.from_user.language_code if message.from_user else None
+            await message.answer(get_texts(lang).PROCESSING_ERROR)
 
-    finally:
-        # cleanup
-        safe_remove(input_path)
-        safe_remove(pdf_path)
+        finally:
+            # cleanup
+            safe_remove(input_path)
+            safe_remove(pdf_path)
 
 
 # ---------------------------

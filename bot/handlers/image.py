@@ -6,6 +6,7 @@ from aiogram import Router, types, F
 from aiogram.types import FSInputFile
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
+from aiogram.utils.chat_action import ChatActionSender
 
 from bot.locales.index import get_texts
 from bot.services.image_service import images_to_pdf
@@ -96,40 +97,41 @@ async def flush_media_group(group_key: MediaGroupKey, message: types.Message):
 # ---------------------------
 async def process_image_batch(message: types.Message, image_file_id: List[str]):
     user_id = message.from_user.id if message.from_user else 0
-
     temp_image_paths = []
     pdf_path = None
     operation_id = uuid.uuid4().hex[:10]
 
-    try:
-        # 1. download images
-        temp_image_paths = await download_images(
-            bot=message.bot,
-            file_ids=image_file_id,
-            user_id=user_id,
-            operation_id=operation_id
-        )
+    async with ChatActionSender.upload_document(chat_id=message.chat.id, bot=message.bot):
+        try:
+            # 1. download images
+            temp_image_paths = await download_images(
+                bot=message.bot,
+                file_ids=image_file_id,
+                user_id=user_id,
+                operation_id=operation_id
+            )
 
-        # 2. build pdf name
-        pdf_path = build_pdf_name(user_id, operation_id)
+            # 2. build pdf name
+            pdf_path = build_pdf_name(user_id, operation_id)
 
-        # 3. convert
-        images_to_pdf(temp_image_paths, pdf_path)
+            # 3. convert
+            images_to_pdf(temp_image_paths, pdf_path)
 
-        # 4. send result
-        await message.answer_document(FSInputFile(pdf_path))
+            # 4. send result
+            await message.answer_document(FSInputFile(pdf_path))
 
-    except Exception:
-        lang = message.from_user.language_code if message.from_user else None
-        await message.answer(get_texts(lang).PROCESSING_ERROR)
+        except Exception:
+            lang = message.from_user.language_code if message.from_user else None
+            await message.answer(get_texts(lang).PROCESSING_ERROR)
 
-    finally:
-        # cleanup
-        for path in temp_image_paths:
-            safe_remove(path)
+        finally:
+            # cleanup
+            for path in temp_image_paths:
+                safe_remove(path)
 
-        if pdf_path:
-            safe_remove(pdf_path)
+            if pdf_path:
+                safe_remove(pdf_path)
+
 
 # ---------------------------
 # FALLBACK
