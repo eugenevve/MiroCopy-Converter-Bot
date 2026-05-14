@@ -17,7 +17,7 @@ A simple Telegram bot that converts images into a single PDF file.
 - 📷 Convert single image to PDF
 - 🖼 Convert multiple images (albums) into one PDF
 - 🗒 Convert txt file to pdf
-- 🌍 Multi-language support (EN, RU, ES, PT, ID, AR)
+- 🌍 Multi-language support
 - ⚡ Fast and asynchronous processing
 - 🧹 Automatic temporary file cleanup
 
@@ -104,12 +104,12 @@ Environment variables:
 
 ## 🌍 Supported Languages
 
-- English
-- Russian
-- Spanish
-- Portuguese
-- Indonesian
-- Arabic
+- English (EN)
+- Russian (RU)
+- Spanish (ES)
+- Portuguese (PT)
+- Indonesian (ID)
+- Arabic (AR)
 
 Language is automatically detected from Telegram settings.
 
@@ -125,6 +125,7 @@ bot/
   locales/
   services/
   telegram/
+  ui/
   utils/
 docs/
 .gitignore
