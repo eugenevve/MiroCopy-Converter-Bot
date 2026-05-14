@@ -10,7 +10,7 @@ from reportlab.lib.units import mm
 def txt_to_pdf(input_path: str, output_path: str):
     font_name = "Roboto"
     font_file = "Roboto-Regular.ttf"
-    font_path = os.path.join("assets", font_file)
+    font_path = os.path.join("assets", "fonts", font_file)
 
     if not os.path.exists(font_path):
         font_path = font_file
