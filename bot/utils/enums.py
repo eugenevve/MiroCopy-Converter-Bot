@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, StrEnum
 
 
 class Command(str, Enum):
@@ -48,3 +48,9 @@ class FileImageExtensions(str, Enum):
 
 class FileImageExtensionsUppercase(str, Enum):
     JPEG = "JPEG"
+
+
+class CommandArgs(StrEnum):
+    MAIN = "main"
+    IMAGE = "image"
+    TXT = "txt"

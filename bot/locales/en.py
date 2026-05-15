@@ -18,6 +18,14 @@ SEND_TXT = "Submit a TXT file for assembly into a PDF file"
 # Other text
 UPDATE_SYSTEM = "Updating the system..."
 
+# Inline-mode description text
+INLINE_MAIN_BUTTON = "Open bot"
+INLINE_BUTTON_CONVERT = "📝 Convert"
+INLINE_DESCRIPTION_IMAGE = "Convert images to PDF"
+INLINE_DESCRIPTION_TXT = "Convert TXT to PDF"
+INLINE_MESSAGE_IMAGE = "Click the button below to submit an image for conversion"
+INLINE_MESSAGE_TXT = "Click the button below to submit a TXT for conversion"
+
 # Error messages
 PROCESSING_ERROR = "An error occurred while processing"
 UNSUPPORTED_CONTENT = "Incorrect parameters please try again"

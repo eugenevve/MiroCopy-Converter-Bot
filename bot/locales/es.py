@@ -18,6 +18,14 @@ SEND_TXT = "Envíe un archivo TXT para su ensamblaje en un archivo PDF"
 # Other text
 UPDATE_SYSTEM = "Actualizando el sistema..."
 
+# Inline-mode description text
+INLINE_MAIN_BUTTON = "Abrir bot"
+INLINE_BUTTON_CONVERT = "📝 Convertir"
+INLINE_DESCRIPTION_IMAGE = "Convertir imágenes a PDF"
+INLINE_DESCRIPTION_TXT = "Convertir TXT a PDF"
+INLINE_MESSAGE_IMAGE = "Haz clic en el botón de abajo para enviar una imagen para su conversión"
+INLINE_MESSAGE_TXT = "Haz clic en el botón de abajo para enviar un TXT para su conversión"
+
 # Error messages
 PROCESSING_ERROR = "Se produjo un error durante el procesamiento"
 UNSUPPORTED_CONTENT = "Parámetros incorrectos inténtelo de nuevo"

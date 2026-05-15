@@ -18,6 +18,7 @@ A simple Telegram bot that converts images into a single PDF file.
 - 🖼 Convert multiple images (albums) into one PDF
 - 🗒 Convert txt file to pdf
 - 🌍 Multi-language support
+- 🔍 Inline-mode support
 - ⚡ Fast and asynchronous processing
 - 🧹 Automatic temporary file cleanup
 
@@ -49,6 +50,7 @@ Create a `.env` file in the project root:
 
 ```env
 BOT_TOKEN=your_telegram_bot_token
+DEBUG_MODE=True
 ```
 
 ---
@@ -96,9 +98,10 @@ Make sure `.env` file exists on the server.
 
 Environment variables:
 
-| Variable  | Description            |
-| --------- | ---------------------- |
-| BOT_TOKEN | Telegram bot API token |
+| Variable   | Description             |
+| ---------- | ----------------------- |
+| BOT_TOKEN  | Telegram bot API token  |
+| DEBUG_MODE | Telegram bot debug mode |
 
 ---
 

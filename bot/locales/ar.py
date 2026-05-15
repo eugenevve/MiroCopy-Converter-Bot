@@ -18,6 +18,14 @@ SEND_TXT = "أرسل ملف TXT لتجميعه في ملف PDF"
 # Other text
 UPDATE_SYSTEM = "جارٍ تحديث النظام..."
 
+# Inline-mode description text
+INLINE_MAIN_BUTTON = "فتح البوت"
+INLINE_BUTTON_CONVERT = "📝 تحويل"
+INLINE_DESCRIPTION_IMAGE = "تحويل الصور إلى PDF"
+INLINE_DESCRIPTION_TXT = "تحويل ملفات TXT إلى PDF"
+INLINE_MESSAGE_IMAGE = "انقر على الزر أدناه لإرسال صورة للتحويل"
+INLINE_MESSAGE_TXT = "انقر على الزر أدناه لإرسال ملف TXT للتحويل"
+
 # Error messages
 PROCESSING_ERROR = "حدث خطأ أثناء المعالجة"
 UNSUPPORTED_CONTENT = "معلمات غير صحيحة، يرجى المحاولة مرة أخرى"

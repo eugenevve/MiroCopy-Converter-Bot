@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.client.default import DefaultBotProperties
 
-from bot.core.config import API_TOKEN
+from bot.core.config import API_TOKEN, DEBUG_MODE
 from bot.handlers import get_handlers_router
 from bot.core.logging import logger
 from bot.telegram.commands import set_commands
@@ -22,8 +22,9 @@ async def main() -> None:
     dp = Dispatcher()
     dp.include_router(get_handlers_router())
 
-    await set_commands(bot)
-    await set_description(bot)
+    if not DEBUG_MODE:
+        await set_commands(bot)
+        await set_description(bot)
 
     try:
         await dp.start_polling(bot)

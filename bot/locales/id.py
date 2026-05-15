@@ -18,6 +18,14 @@ SEND_TXT = "Kirimkan file TXT untuk dirakit menjadi file PDF"
 # Other text
 UPDATE_SYSTEM = "Memperbarui sistem..."
 
+# Inline-mode description text
+INLINE_MAIN_BUTTON = "Buka bot"
+INLINE_BUTTON_CONVERT = "📝 Konversi"
+INLINE_DESCRIPTION_IMAGE = "Konversi gambar ke PDF"
+INLINE_DESCRIPTION_TXT = "Konversi TXT ke PDF"
+INLINE_MESSAGE_IMAGE = "Klik tombol di bawah ini untuk mengirimkan gambar untuk dikonversi"
+INLINE_MESSAGE_TXT = "Klik tombol di bawah ini untuk mengirimkan TXT untuk dikonversi"
+
 # Error messages
 PROCESSING_ERROR = "Terjadi kesalahan saat pemrosesan"
 UNSUPPORTED_CONTENT = "Parameter tidak tepat silakan coba lagi"
